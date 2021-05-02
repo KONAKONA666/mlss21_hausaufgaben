@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\newcommand{\R}{\mathbb{R}}
+
+\title{robotics1, HW 1}
+\author{Aybek Bekbayev, 3462098, BSc Mathematik }
+\date{April 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Matrix equations (4 points)}
+
+\paragraph{a)}
+\text{Let $X$, $A$ be arbitrary matrices, A invertible. Solve for X:}
+    \begin{center}
+        $$
+            XA + A^{T} = \textbf{I} 
+        $$
+        $$   
+            A^{T}X^{T}+A = \textbf{I}^{T} = \textbf{I} 
+        $$    
+        $$
+            X^T = (A^{-1})^{T}(\textbf{I}-A) 
+        $$
+        $$
+            X = (\textbf{I} - A^{T})A^{-1}
+        $$ 
+    \end{center}
+\paragraph{b)}
+\text{ Let $X$, $A$, $B$ be arbitrary matrices, $(C - 2A^{T})$ invertible. Solve for X:}
+\begin{center}
+    $$
+        X^{T}C=[2A(X+B)]^{T}
+    $$
+    $$
+        X^{T}C = 2(X^{T} + B^{T})A^{T}  
+    $$
+    $$
+        X^{T}C = 2X^{T}A^{T} + 2B^{T}A^{T}
+    $$
+    $$
+        X^{T}(C-2A^{T}) = 2B^{T}A^{T}
+    $$
+    $$
+        X^{T} = (C-2A^{T})^{-1}(2AB)^T
+    $$
+    $$
+        X = 2AB((C-2A^{T})^{-1})^{T}
+    $$
+\end{center}
+\paragraph{c)}
+\begin{center}
+    $$
+        (Ax-y)^{T}A = \textbf{0}_{n}^{T}
+    $$    
+    $$
+        x^{T}A^{T}A-y^{T}A = \textbf{0}^{T}_{n}
+    $$
+    $$
+        x^{T}A^{T}A = y^{T}A
+    $$
+    $$
+        A^{T}Ax = A^{T}y
+    $$
+    $$
+        x = (A^{T}A)^{-1}A^{T}y
+    $$
+\end{center}
+\paragraph{d)}
+\begin{center}
+
+\end{center}
+\section{ Vector derivatives (5 points)}
+Let $x$ \in \R$^{n}$, $y$ \in \R$^{d}$, $f$, $g$ : \R$^{n}$ \rightarrow \R$^{d}$, $A$ \in \R$^{n \times d}$, $C$ \in \R$^{d \times d}$. (Also provide the dimensionality of the results.) \\
+a) What is $\frac{\partial}{\partial x}x$ ?
+\begin{center}
+    $\frac{\partial}{\partial x}x = \textbf{1}_{n}^{T}$ (shape is ($1$, $n$))
+\end{center}
+b) What is $\frac{\partial}{\partial x}x^Tx $
+\begin{center}
+    $\frac{\partial}{\partial x}x^Tx = 2x^{T}$ (shape is ($1$, $n$))
+\end{center}
+c) What is $\frac{\partial}{\partial x}[f(x)^Tf(x)]$
+\begin{center}
+    $\frac{\partial}{\partial x}[f(x)^{T}f(x)] = 2f(x)^{T}f^{'}(x)$\\
+    $f(x)$ is shape of (d, 1) \\
+    $f^{'}(x)$ is shape of (d, n) \\
+    $f(x)^{T}f^{'}(x)$ is shape of (1, n)
+    
+\end{center}
+d) What is $\frac{\partial}{\partial x}[f(x)^TCg(x)]$
+\begin{center}
+    $\frac{\partial}{\partial x}[f(x)^TCg(x)] = f(x)^{T}Cg^{'}(x) + g(x)^{T}C^{T}f^{'}(x)$ \\
+    $f^{'}(x)$ and $g^{'}(x)$ are shape of $(d, n)$ \\
+    $f(x)^{T}C$ is $(1, d) \times (d, d) = (1, d)$ \\
+    $g(x)^{T}C^{T}$ is $(1, d) \times (d, d) = (1,d)$ \\
+    $(1,d) \times (d, n) = (1, n)$ \\
+    Shape of the derivative is $(1, n)$
+\end{center}
+e)
+\begin{center}
+    $$
+        f(x) = (Ax-y)^{T}(Ax-y)+x^{T}Bx^{T}
+    $$
+    $$
+        f^{'}(x) = 2(Ax-y)^{T}A + 2x^{T}B
+    $$
+    $$
+        f^{'}(x) = 0
+    $$
+    $$
+        2(Ax-y)^{T}A + 2x^{T}B = 0
+    $$
+    $$
+        x^{T}A^{T}A-y^TA + x^{T}B = 0
+    $$
+    $$
+        x^{T}(A^{T}A+B) = y^{T}A
+    $$
+    $$
+        x = (A^TA+B^T)^{-1}A^{T}y
+    $$
+   
+\end{center}
+\end{document}
